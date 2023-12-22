@@ -1,0 +1,638 @@
+<div class="pageBox">
+    <div class="header">
+      <h1>{{ "sideNavMenu.createOrder" | translate }}</h1>
+    </div>
+    <div class="breadCrumb">
+      <h5>
+        <a href="">{{ "sideNavMenu.orderManagement" | translate }}</a>
+      </h5>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="arrow_forward_ios"
+      ></mat-icon>
+      <h5>
+        <a>{{ "sideNavMenu.createOrder" | translate }}</a>
+      </h5>
+    </div>
+  
+    <div class="row">
+      <div class="col d-flex mb-5 mt-4">
+        <h5 style="width: 12em">
+          {{ "createOrderPage.lastOrderStatus" | translate }}
+        </h5>
+        <p style="color: red; text-decoration: underline">
+         09-10-2023 - Will be Delivered (Click for Details)
+        </p>
+      </div>
+      <div [formGroup]="createOrderForm">
+        <form class="row">
+          <div class="col">
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.orderNumber" | translate
+              }}</mat-label>
+              <input
+                matInput
+                placeholder="123"
+                type="text"
+                formControlName="orderNumber"
+              />
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{ "createOrderPage.orderType" | translate }}</mat-label>
+              <mat-select formControlName="orderType">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.orderCreator" | translate
+              }}</mat-label>
+              <mat-select formControlName="orderCreator">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.paymentType" | translate
+              }}</mat-label>
+              <mat-select formControlName="paymentType">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.orderBranch" | translate
+              }}</mat-label>
+              <mat-select formControlName="orderBranch">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.orderDeliveryPerson" | translate
+              }}</mat-label>
+              <mat-select formControlName="orderDeliveryPerson">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>
+                {{ "createOrderPage.generalOrderNote" | translate }}</mat-label
+              >
+              <textarea
+                matInput
+                formControlName="generalOrderNote"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="4"
+              >
+              </textarea>
+            </mat-form-field>
+          </div>
+  
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="w-100" color="warn" appearance="outline">
+                  <mat-label>{{
+                    "createOrderPage.orderDate" | translate
+                  }}</mat-label>
+                  <input
+                    matInput
+                    [matDatepicker]="picker1"
+                    formControlName="orderDate"
+                  />
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker1"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                  <!-- <mat-error *ngIf="orderListForm.hasError('required','registrationDate')">{{'validation.required' |
+                                          translate}}</mat-error> -->
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-checkbox formControlName="orderDatePicker" color="warn">{{
+                  "createOrderPage.appointmentOrder" | translate
+                }}</mat-checkbox>
+              </div>
+            </div>
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>
+                {{ "createOrderPage.customerName" | translate }}
+              </mat-label>
+              <mat-icon matPrefix>search</mat-icon>
+              <input
+                matInput
+                placeholder="abc"
+                type="text"
+                formControlName="customerName"
+              />
+              <mat-icon matSuffix>settings_voice</mat-icon>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.customerBalance" | translate
+              }}</mat-label>
+              <mat-select formControlName="customerBalance">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.escrowProduct" | translate
+              }}</mat-label>
+              <input
+                matInput
+                placeholder="123"
+                type="text"
+                formControlName="escrowProduct"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.depositProcess" | translate
+              }}</mat-label>
+              <input
+                matInput
+                placeholder="123"
+                type="text"
+                formControlName="despositProcess"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createOrderPage.orderAddress" | translate
+              }}</mat-label>
+              <textarea
+                matInput
+                formControlName="orderAddress"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="4"
+              >
+              </textarea>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+      <div class="row mt-3 mb-4">
+        <div class="col tabs">
+          <button [class.active]="isMainProductDiv" (click)="mainProductsDivFn()">
+            {{ "btn.mainProducts" | translate }}
+          </button>
+          <button
+            [class.active]="isOtherProductDiv"
+            (click)="otherProductsDivFn()"
+          >
+            {{ "btn.otherProducts" | translate }}
+          </button>
+        </div>
+  
+        <div *ngIf="isMainProductDiv" class="border mt-3">
+          <form [formGroup]="mainProductForm">
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('mainProductOneQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="mainProductOneQuantity"
+                  value="{{ count1 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('mainProductOneQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.stocks" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="123"
+                  type="number"
+                  formControlName="mainProductOneStocks"
+                />
+              </mat-form-field>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.price" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="300"
+                  type="number"
+                  formControlName="mainProductOnePrize"
+                />
+              </mat-form-field>
+  
+              <mat-checkbox
+                matInput
+                formControlName="mainProductOnefreeItem"
+                class="w-100"
+                color="warn"
+                >{{ "createOrderPage.freeItemCheck" | translate }}
+              </mat-checkbox>
+            </div>
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('mainProductTwoQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="mainProductTwoQuantity"
+                  value="{{ count2 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('mainProductTwoQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.stocks" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="123"
+                  type="number"
+                  formControlName="mainProductTwoStocks"
+                />
+              </mat-form-field>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.price" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="300"
+                  type="number"
+                  formControlName="mainProductTwoPrize"
+                />
+              </mat-form-field>
+  
+              <mat-checkbox
+                matInput
+                formControlName="mainProductTwofreeItem"
+                class="w-100"
+                color="warn"
+                >{{ "createOrderPage.freeItemCheck" | translate }}
+              </mat-checkbox>
+            </div>
+  
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('mainProductThreeQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="mainProductThreeQuantity"
+                  value="{{ count3 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('mainProductThreeQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.stocks" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="123"
+                  type="number"
+                  formControlName="mainProductThreeStocks"
+                />
+              </mat-form-field>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.price" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="300"
+                  type="number"
+                  formControlName="mainProductThreePrize"
+                />
+              </mat-form-field>
+  
+              <mat-checkbox
+                matInput
+                formControlName="mainProductThreefreeItem"
+                class="w-100"
+                color="warn"
+                >{{ "createOrderPage.freeItemCheck" | translate }}
+              </mat-checkbox>
+            </div>
+  
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('mainProductFourQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="mainProductFourQuantity"
+                  value="{{ count4 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('mainProductFourQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.stocks" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="123"
+                  type="number"
+                  formControlName="mainProductFourStocks"
+                />
+              </mat-form-field>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{ "createOrderPage.price" | translate }}</mat-label>
+                <input
+                  matInput
+                  placeholder="300"
+                  type="number"
+                  formControlName="mainProductFourPrize"
+                />
+              </mat-form-field>
+  
+              <mat-checkbox
+                matInput
+                formControlName="mainProductFourfreeItem"
+                class="w-100"
+                color="warn"
+              >
+                {{ "createOrderPage.freeItemCheck" | translate }}
+              </mat-checkbox>
+            </div>
+          </form>
+        </div>
+  
+        <div *ngIf="isOtherProductDiv" class="border mt-3">
+          <form [formGroup]="otherProductForm">
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{
+                  "createOrderPage.productName" | translate
+                }}</mat-label>
+                <mat-icon matPrefix>search</mat-icon>
+                <input
+                  matInput
+                  placeholder=""
+                  type="text"
+                  formControlName="otherProductName"
+                />
+              </mat-form-field>
+  
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <mat-label>{{
+                  "createOrderPage.quantity" | translate
+                }}</mat-label>
+                <input
+                  matInput
+                  placeholder=""
+                  type="Number"
+                  formControlName="otherProductQuantity"
+                />
+              </mat-form-field>
+  
+              <mat-checkbox
+                matInput
+                formControlName="otherProductfreeItem"
+                class="w-100"
+                color="warn"
+              >
+                {{ "createOrderPage.freeItem" | translate }}
+              </mat-checkbox>
+            </div>
+  
+            <div class="searchBtn">
+              <button style="margin-right: 1.5em" mat-raised-button color="warn">
+                <mat-icon>add</mat-icon>{{ "btn.add" | translate }}
+              </button>
+              <button mat-raised-button color="warn">
+                <mat-icon>delete</mat-icon>{{ "btn.delete" | translate }}
+              </button>
+            </div>
+  
+            <div class="mat-elevation-z8 mb-5 mt-5 table-responsive ng-container">
+              <table mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="otherProductName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ "createOrderPage.productName" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    {{ row.otherProductName }}
+                  </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="unit">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ "createOrderPage.unit" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">{{ row.unit }}</td>
+                </ng-container>
+  
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ "createOrderPage.quantity" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">{{ row.quantity }}</td>
+                </ng-container>
+  
+                <ng-container matColumnDef="freeItem">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ "createOrderPage.freeItem" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">{{ row.freeItem }}</td>
+                </ng-container>
+  
+                <ng-container matColumnDef="freeReason">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    {{ "createOrderPage.freeReason" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">{{ row.freeReason }}</td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+  
+              <mat-paginator
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page of users"
+              ></mat-paginator>
+            </div>
+          </form>
+        </div>
+  
+        <div class="orderAmount">
+          <label class="mb-2">{{
+            "createOrderPage.orderAmount" | translate
+          }}</label>
+          <input type="number" placeholder="123" class="mb-2" />
+        </div>
+  
+        <div class="searchBtn">
+          <button style="margin-right: 1.5em" mat-raised-button color="warn">
+            <mat-icon>reply</mat-icon>{{ "btn.back" | translate }}
+          </button>
+          <button
+            (click)="createOrderSubmitFn()"
+            style="margin-right: 1.5em"
+            mat-raised-button
+            color="warn"
+          >
+            <mat-icon>save</mat-icon>{{ "btn.save" | translate }}
+          </button>
+          <button style="margin-right: 1.5em" mat-raised-button color="warn">
+            <mat-icon>cancel</mat-icon>{{ "btn.cancel" | translate }}
+          </button>
+          <button mat-raised-button color="warn">
+            <mat-icon>report</mat-icon>{{ "btn.report" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,23 @@
+.outerBox{
+    background-color: white; 
+    height: 60px;
+    box-shadow: #eee 0 3px 5px;
+    margin-top: 12px;
+    margin: 12px 12px;
+}
+.innerBox{
+    display: flex; 
+    justify-content: end; 
+    padding-right: 1em;
+}
+i{
+    margin-top: .299em; 
+    margin-right: .3em;
+}
+.name{
+    margin-top: .5em; 
+    margin-right: .5em;
+}
+.logoutBtn{
+    margin-top: .6em;
+}

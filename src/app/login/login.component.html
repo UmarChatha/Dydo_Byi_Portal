@@ -1,0 +1,35 @@
+<div class="d-flex block">
+  <div class="box d-flex">
+    <div class="logoDiv">
+      <img src="../../assets/logo.png" />
+    </div>
+    <div class="loginFormDiv">
+      <form class="loginForm" [formGroup]="loginForm">
+
+        <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+          <mat-label>{{'loginPage.form.emailAddress' | translate}}</mat-label>
+          <input matInput placeholder="name@example.com" type="email" formControlName="email">
+          <mat-error *ngIf="loginForm.hasError('required','email')">{{'validation.required' | translate}}</mat-error>
+          <mat-error *ngIf="loginForm.hasError('email','email')">{{'validation.email' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+          <mat-label>{{'loginPage.form.password' | translate}}</mat-label>
+          <input matInput placeholder="********" type="password" formControlName="password">
+          <mat-error *ngIf="loginForm.hasError('required','password')">{{'validation.required' | translate}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+          <mat-label>{{'loginPage.form.pleaseSelectLanguage' | translate}}</mat-label>
+          <mat-select (selectionChange)="selectLang($event)">
+            <mat-option [value]="languageMapping[lang]" *ngFor="let lang of supportedLanguages">{{lang}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button routerLink="main/customer-management/customer-pre-search" mat-raised-button class="w-100 mb-2" color="warn" (click)="LoginFn()">{{'btn.login' | translate}}</button>
+
+      </form>
+      <a href="">{{'btn.forgotPassword' | translate}}</a>
+    </div>
+  </div>
+</div>

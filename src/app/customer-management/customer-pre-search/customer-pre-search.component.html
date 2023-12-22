@@ -1,0 +1,22 @@
+<div class="pageBox">
+    <div class="header">
+        <h1>{{'sideNavMenu.customerPreSearch' | translate}}</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="breadCrumb">
+                <h5><a href="">{{'sideNavMenu.customerManagement' | translate}}</a></h5>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_forward_ios"></mat-icon>
+                <h5><a>{{'sideNavMenu.customerPreSearch' | translate}}</a></h5>
+            </div>
+            <form [formGroup]="searchCustomerNumberForm" class="form">
+                <mat-form-field class="inputFormField" color="warn" appearance="outline">
+                    <mat-label>{{'customerPreSearchPage.customerPhoneNumber' | translate}}</mat-label>
+                    <input matInput placeholder="0123456789" type="text" formControlName="customerPhoneNumber">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                <button (click)="searchCustomerNumberSubmitFn()" class="nextBtn rounded">{{'btn.next' | translate}}</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="pageBox">
+  <div class="header">
+    <h1>{{ "sideNavMenu.createDeliveryPerson" | translate }}</h1>
+  </div>
+  <div class="breadCrumb">
+    <h5>
+      <a href="">{{ "sideNavMenu.deliveryPersonManagement" | translate }}</a>
+    </h5>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="arrow_forward_ios"
+    ></mat-icon>
+    <h5>
+      <a>{{ "sideNavMenu.createDeliveryPerson" | translate }}</a>
+    </h5>
+  </div>
+  <div class="row">
+    <form [formGroup]="createDeliveryPersonForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{ "createDeliveryPersonPage.deliveryPersonName" | translate }}</mat-label>
+            <input
+              matInput
+              placeholder="ABC"
+              type="text"
+              formControlName="deliveryPersonName"
+            />
+          </mat-form-field>
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "createDeliveryPersonPage.deliveryPersonStatus" | translate }}</mat-label>
+            <mat-select formControlName="deliveryPersonStatus">
+              <mat-option value="one">{{ "createDeliveryPersonPage.activeCanTakeOrder" | translate }}</mat-option>
+              <mat-option value="two">{{ "createDeliveryPersonPage.pasiveCanotTakeOrder" | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "createDeliveryPersonPage.stockMovement" | translate }}</mat-label>
+            <mat-select formControlName="stockMovement">
+              <mat-option value="one">{{ "btn.add" | translate }}</mat-option>
+              <mat-option value="two">{{ "btn.remove" | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="remainingStock">
+            <label class="mb-2">{{ "createDeliveryPersonPage.remainingStock" | translate }}</label>
+            <p formControlName="remainingStock">-864</p>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="searchBtn">
+        <button
+          (click)="createDeliveryPersonFn()"
+          style="margin-right: 1.5em"
+          mat-raised-button
+          color="warn"
+        >
+          <mat-icon>save</mat-icon>{{'btn.save' | translate}}
+        </button>
+        <button style="margin-right: 1.5em" mat-raised-button color="warn">
+          <mat-icon>zoom_out</mat-icon>{{'btn.clean' | translate}}
+        </button>
+      </div>
+  </div>
+</div>

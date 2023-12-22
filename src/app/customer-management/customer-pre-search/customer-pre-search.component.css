@@ -1,0 +1,16 @@
+
+.form{
+    display: flex;
+    justify-content: center;
+}
+.inputFormField{
+    width: 80%;
+}
+.nextBtn{
+    background-color: #CE122D;
+    color: white;
+    padding: 1em;
+    border: none;
+    margin-left: 1.5em;
+    height: 3.6em;
+}

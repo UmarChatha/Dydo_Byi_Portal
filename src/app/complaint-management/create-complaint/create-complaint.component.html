@@ -1,0 +1,275 @@
+<div class="pageBox">
+    <div class="header">
+      <h1>{{'sideNavMenu.createComplaint' |translate}}</h1>
+    </div>
+    <div class="breadCrumb">
+      <h5><a href="">{{'sideNavMenu.complaintManagement' |translate}}</a></h5>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="arrow_forward_ios"
+      ></mat-icon>
+      <h5><a>{{'sideNavMenu.createComplaint' |translate}}</a></h5>
+    </div>
+    <div class="row">
+      <div [formGroup]="createComplaintForm">
+        <form class="row">
+          <div class="col">
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label >{{'createComplaintPage.subject' |translate}}</mat-label>
+              <input
+                matInput
+                placeholder=""
+                type="text"
+                formControlName="subjet"
+              />
+            </mat-form-field>
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaintDescription' |translate}}</mat-label>
+              <textarea
+                matInput
+                formControlName="complaintDescription"
+                placeholder="Content of the Complaint"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="4"
+              >
+              </textarea>
+            </mat-form-field>
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaintOrderNumber' | translate}}</mat-label>
+              <mat-icon matPrefix>search</mat-icon>
+              <input
+                matInput
+                placeholder=""
+                type="text"
+                formControlName="complaintOrderNumber"
+              />
+            </mat-form-field>
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.customerAddress' |translate}}</mat-label>
+              <mat-icon matPrefix>search</mat-icon>
+              <input
+                matInput
+                placeholder=""
+                type="text"
+                formControlName="customerAddress"
+              />
+            </mat-form-field>
+            <label class="label">{{'createComplaintPage.complaintReminder' |translate}}</label>
+            <mat-checkbox matInput formControlName="complaintReminder" color="warn">
+            </mat-checkbox>
+          </div>
+          <div class="col">
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.contactType' |translate}}</mat-label>
+              <mat-select formControlName="contactType">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaintsUpperGroup' |translate}}</mat-label>
+              <mat-select formControlName="complaintUpperGroup">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaintType' |translate}}</mat-label>
+              <mat-select formControlName="complaintType">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaint/suggestion' |translate}}</mat-label>
+              <mat-select formControlName="complaintOrSuggestion">
+                <mat-option value="one">Complaint</mat-option>
+                <mat-option value="two">Suggestion</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaint/suggestionDate' |translate}}</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                formControlName="complaintOrSuggestionDate"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createComplaintPage.complaintStatus' |translate}}</mat-label>
+              <mat-select formControlName="complaintStatus">
+                <mat-option value="one">Open</mat-option>
+                <mat-option value="two">Closed</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+      <div class="row mt-3 mb-4">
+        <div class="col tabs">
+          <button [class.active]="isComplaintDiv" (click)="complaintDivFn()">
+            {{'btn.freeProduct' |translate}}
+          </button>
+        </div>
+        <div *ngIf="isComplaintDiv" class="border mt-3">
+          <form [formGroup]="freeProductForm">
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('freeProductOneQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="freeProductOneQuantity"
+                  value="{{ count1 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('freeProductOneQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('freeProductTwoQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="freeProductTwoQuantity"
+                  value="{{ count2 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('freeProductTwoQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('freeProductThreeQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="freeProductThreeQuantity"
+                  value="{{ count3 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('freeProductThreeQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <div class="secondaryForm tabForm">
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input matInput placeholder="ABC" type="text" />
+              </mat-form-field>
+              <button
+                mat-fab
+                color="warn"
+                (click)="decreaseQuantity('freeProductFourQuantity')"
+              >
+                <mat-icon>remove</mat-icon>
+              </button>
+              <mat-form-field
+                class="w-100 mb-1"
+                color="warn"
+                appearance="outline"
+              >
+                <input
+                  matInput
+                  placeholder=""
+                  type="number"
+                  formControlName="freeProductFourQuantity"
+                  value="{{ count4 }}"
+                />
+              </mat-form-field>
+              <button
+                mat-fab
+                color=""
+                (click)="increaseQuantity('freeProductFourQuantity')"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </form>
+        </div>
+      
+      </div>
+      <div class="searchBtn mb-4">
+        <button  (click)="createComplaintSubmitFn()" style="margin-right: 1.5em;" mat-raised-button color="warn" ><mat-icon>save</mat-icon>{{'btn.save' | translate}}</button>
+        <button style="margin-right: 1.5em;" mat-raised-button color="warn" ><mat-icon>zoom_out</mat-icon>{{'btn.clean' | translate}}</button>
+    </div>
+    </div>
+  </div>

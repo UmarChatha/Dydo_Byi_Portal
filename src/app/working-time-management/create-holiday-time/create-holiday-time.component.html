@@ -1,0 +1,61 @@
+<div class="pageBox">
+    <div class="header">
+      <h1>{{'sideNavMenu.createBranchHoliday' | translate}}</h1>
+    </div>
+    <div class="breadCrumb">
+      <h5><a href="">{{'sideNavMenu.workingTimeManagement' | translate}}</a></h5>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="arrow_forward_ios"
+      ></mat-icon>
+      <h5><a>{{'sideNavMenu.createBranchHoliday' | translate}}</a></h5>
+    </div>
+    <div class="row">
+      <div [formGroup]="createBranchHolidayForm">
+        <form class="row">
+          <div class="col">
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createHolidayTimePage.startHolidayDate' | translate}}</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                formControlName="startHolidayDate"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{'createHolidayTimePage.endHolidayDate' | translate}}</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                formControlName="endHolidayDate"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker1"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </form>
+        <div class="searchBtn">
+          <button
+            (click)="createBranchHolidayFn()"
+            style="margin-right: 1.5em"
+            mat-raised-button
+            color="warn"
+          >
+            <mat-icon>save</mat-icon>{{'btn.save' | translate}}
+          </button>
+          <button style="margin-right: 1.5em" mat-raised-button color="warn">
+            <mat-icon>zoom_out</mat-icon>{{'btn.clean' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

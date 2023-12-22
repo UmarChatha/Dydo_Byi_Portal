@@ -1,0 +1,99 @@
+<div class="pageBox">
+  <div class="header">
+    <h1>{{ "sideNavMenu.branchWorkingHours" | translate }}</h1>
+  </div>
+  <div class="breadCrumb">
+    <h5>
+      <a href="">{{ "sideNavMenu.workingTimeManagement" | translate }}</a>
+    </h5>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="arrow_forward_ios"
+    ></mat-icon>
+    <h5>
+      <a>{{ "sideNavMenu.branchWorkingHours" | translate }}</a>
+    </h5>
+  </div>
+
+  <div class="row">
+    <form [formGroup]="createWorkingHoursForm">
+      <div class="row">
+        <div class="col">
+          <div class="radioMargin">
+            <label>{{ "branchWorkingHoursPage.workingStatus" | translate }}</label>
+            <mat-radio-group
+              class="radioButton"
+              formControlName="workingStatus"
+            >
+              <mat-radio-button value="1" color="warn"
+                >{{ "branchWorkingHoursPage.openOrAvailable" | translate }}</mat-radio-button
+              >
+              <mat-radio-button value="2" color="warn"
+                >{{ "branchWorkingHoursPage.temporaryOrNotTakingOrder" | translate }}</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "branchWorkingHoursPage.branchWorkingStart" | translate }}</mat-label>
+            <mat-select formControlName="branchWorkingStart">
+              <mat-option value="one">7:30</mat-option>
+              <mat-option value="two">8:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "branchWorkingHoursPage.branchWorkingEnd" | translate }}</mat-label>
+            <mat-select formControlName="branchWorkingEnd">
+              <mat-option value="one">19:30</mat-option>
+              <mat-option value="two">20:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <div class="radioMargin">
+            <label>{{ "branchWorkingHoursPage.workingSunday" | translate }}</label>
+            <mat-radio-group
+              class="radioButton"
+              formControlName="workingSunday"
+            >
+              <mat-radio-button value="1" color="warn"
+                >{{ "branchWorkingHoursPage.working" | translate }}</mat-radio-button
+              >
+              <mat-radio-button value="2" color="warn"
+                >{{ "branchWorkingHoursPage.notWorking" | translate }}</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "branchWorkingHoursPage.sundayWorkingStart" | translate }}</mat-label>
+            <mat-select formControlName="sundayWorkingStart">
+              <mat-option value="one">7:30</mat-option>
+              <mat-option value="two">8:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{ "branchWorkingHoursPage.sundayWorkingEnd" | translate }}</mat-label>
+            <mat-select formControlName="sundayWorkingEnd">
+              <mat-option value="one">19:30</mat-option>
+              <mat-option value="two">20:00</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="searchBtn">
+        <button  (click)="createWorkingHoursSubmitFn()" style="margin-right: 1.5em;" mat-raised-button color="warn" ><mat-icon>save</mat-icon>{{'btn.save' | translate}}</button>
+        
+    </div>
+
+  </div>
+
+
+
+</div>

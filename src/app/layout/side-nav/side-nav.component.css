@@ -1,0 +1,88 @@
+.box{
+    background-color: white;
+    height: 100vh;
+    box-shadow: #eee 0px 0 5px;
+    background-color: white; 
+    height: 100vh;
+}
+.logo{
+    display: flex; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 65%; 
+    padding-top: 1.7em;
+}
+.menu{
+    width: 100%;
+    margin-top: 30px;
+}
+.menuItem{
+    position: relative;
+    cursor: pointer;
+    margin-bottom: .5em;
+}
+.menuItemActive{
+    background-color: #F6A016;
+    border-radius: .4em;
+    color: white;
+    .icon{
+        filter: brightness() invert();
+    }
+}
+.active{
+    background-color: #F6A016;
+    border-radius: .4em;
+    color: white;
+    .icon{
+        filter: brightness() invert();
+    }
+}
+.menuItemActive a{
+    font-weight:bold;
+}
+.menuItem:hover{
+    background-color: #F6A016;
+    border-radius: .4em;
+    color: white;
+    transition: all 0.4s ease;
+}
+a{
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+    display: block;
+    padding: 5px 30px;
+    line-height: 50px;
+}
+a:hover{
+    color: white;
+    .icon{
+        transition: all 0.4s ease;
+        filter: brightness() invert();
+    }
+}
+i{
+    margin-right: 15px;
+}
+.arrowIcon{
+    position: absolute;
+    right: 0;
+    margin: 15px;
+    transition: all 0s ease;
+    font-weight:600;
+    font-size: x-large;
+}
+.subMenu{
+    margin-left: 8em;
+    display: none;
+}
+.subMenuItem{
+    margin-top: .2em;
+    margin-bottom: .2em;
+    margin-left: 1.5em;
+}
+.subMenuItem:hover{
+    background-color: #F6A016;
+    border-radius: .4em;
+    transition: all 0.4s ease;
+}

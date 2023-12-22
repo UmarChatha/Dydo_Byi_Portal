@@ -1,0 +1,114 @@
+<div class="box">
+    <div>
+        <img class="logo" src="../../../assets/logo.png" >
+    </div>
+    <div class="menu">
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu1">
+            <a (click)="isSubmenuFn1()"><img class="icon" src="../../../assets/sidenav-icons/customer-management.png"> {{'sideNavMenu.customerManagement' | translate}}
+                <i *ngIf="isSubmenu1==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu1==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu1">
+            <a routerLink="customer-management/customer-pre-search" routerLinkActive="active" class="subMenuItem">
+                <img  class="icon" src="../../../assets/sidenav-icons/pre-search.png"> {{'sideNavMenu.customerPreSearch' | translate}}
+            </a>
+            <a routerLink="customer-management/customer-list" routerLinkActive="active" class="subMenuItem">
+                <img class="icon" src="../../../assets/sidenav-icons/List.png" > {{'sideNavMenu.customerList' | translate}}
+            </a>
+        </div>
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu2">
+            <a (click)="isSubmenuFn2()"><img class="" src="../../../assets/sidenav-icons/order-management.png"> {{'sideNavMenu.orderManagement' | translate}}
+                <i *ngIf="isSubmenu2==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu2==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu2">
+            <a routerLink="order-management/create-order" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/Create order.png" >
+                {{'sideNavMenu.createOrder' | translate}}
+            </a>
+            <a routerLink="order-management/order-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.orderList' | translate}}
+            </a>
+        </div>
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu3">
+            <a (click)="isSubmenuFn3()"><img class="icon" src="../../../assets/sidenav-icons/complaint management.png" > {{'sideNavMenu.complaintManagement' | translate}}
+                <i *ngIf="isSubmenu3==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu3==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu3">
+            <a routerLink="complaint-management/create-complaint" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/Create Complaint.png" >
+                {{'sideNavMenu.createComplaint' | translate}}
+            </a>
+            <a routerLink="complaint-management/complaint-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.complaintList' | translate}}
+            </a>
+        </div>
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu4">
+            <a (click)="isSubmenuFn4()"><img class="icon" src="../../../assets/sidenav-icons/purchasing mangement.png" > {{'sideNavMenu.purchasingManagement' | translate}}
+                <i *ngIf="isSubmenu4==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu4==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu4">
+            <a routerLink="purchasing-management/create-purchase-order" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/purchasing order.png" >
+                {{'sideNavMenu.createPurchaseOrder' | translate}}
+            </a>
+            <a routerLink="purchasing-management/purchase-order-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.purchaseOrderList' | translate}}
+            </a>
+        </div>
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu5">
+            <a (click)="isSubmenuFn5()"><img class="icon" src="../../../assets/sidenav-icons/time-management.png" > {{'sideNavMenu.workingTimeManagement' | translate}}
+                <i *ngIf="isSubmenu5==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu5==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu5">
+            <a routerLink="working-time-management/create-holiday-time" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/holiday.png" >
+                {{'sideNavMenu.createBranchHoliday' | translate}}
+            </a>
+            <a routerLink="working-time-management/holiday-time-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.branchHolidayList' | translate}}
+            </a>
+            <a routerLink="working-time-management/branch-working-hours" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.branchWorkingHours' | translate}}
+            </a>
+        </div>
+        <div class="menuItem" [class.menuItemActive]="isSubmenu6">
+            <a (click)="isSubmenuFn6()"><img class="icon" src="../../../assets/sidenav-icons/Create order.png" > {{'sideNavMenu.deliveryPersonManagement' | translate}}
+                <i *ngIf="isSubmenu6==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu6==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu6">
+            <a routerLink="delivery-person-management/create-delivery-person" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/holiday.png" >
+                {{'sideNavMenu.createDeliveryPerson' | translate}}
+            </a>
+            <a routerLink="delivery-person-management/delivery-person-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/List.png" >
+                {{'sideNavMenu.deliveryPersonList' | translate}}
+            </a>
+           
+        </div>
+
+        <div class="menuItem" [class.menuItemActive]="isSubmenu7">
+            <a (click)="isSubmenuFn7()"><img class="icon" src="../../../assets/sidenav-icons/purchasing order.png" > {{'sideNavMenu.productManagement' | translate}}
+                <i *ngIf="isSubmenu7==false" class="fa fa-angle-right arrowIcon"></i>
+                <i *ngIf="isSubmenu7==true" class="fa fa-angle-down arrowIcon"></i>
+            </a>
+        </div>
+        <div [class.subMenu]="!isSubmenu7">
+            <a routerLink="product-management/product-price-list" routerLinkActive="active" class="subMenuItem"><img class="icon" src="../../../assets/sidenav-icons/holiday.png" >
+                {{'sideNavMenu.productPriceList' | translate}}
+            </a>
+           
+        </div>
+
+    </div>
+</div>

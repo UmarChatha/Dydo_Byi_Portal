@@ -1,0 +1,70 @@
+.active{
+  background-color: #CE122D !important;
+  color: white;
+}
+.tabs button{
+  border: none; 
+  background-color: #EEEEEE;
+  padding: .7em;
+  width: 15em;
+  
+}
+.tabs button:hover{
+  background-color: #CE122D;
+  color: white;
+  transition: all 0.9s ease;
+}
+.tabForm {
+  width: 80%;
+  margin: 2em auto 0 auto;
+}
+table {
+  width: 100%;
+}
+
+
+.searchBtn {
+  justify-content: center;
+  display: flex;
+  margin-top: 1em;
+}
+
+.AddPhoneBtn{
+  background-color: #CE122D;
+  color: white;
+  padding: 1em;
+  border: none;
+  margin-left: 1.5em;
+  height: 3.6em;
+}
+
+.notFound{
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+mat-table {
+  width: 1200px;
+  max-width: 1200px;
+  margin-bottom: 1rem;
+  display: table;
+  border-collapse: collapse;
+  margin: 0px;
+ }
+ mat-row,
+ mat-header-row {
+   display: table-row;
+ }
+ mat-cell,
+ mat-header-cell {
+   word-wrap: initial;
+   display: table-cell;
+   padding: 0px 5px;
+   line-break: unset;
+   width: auto;
+   white-space: nowrap;
+   overflow: hidden;
+   vertical-align: middle;
+ }
+ 

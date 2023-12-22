@@ -1,0 +1,468 @@
+<div class="pageBox">
+  <div class="header">
+    <h1>{{ "createCustomerPage.createCustomer" | translate }}</h1>
+  </div>
+  <div class="breadCrumb">
+    <h5>
+      <a href="">{{ "sideNavMenu.customerManagement" | translate }}</a>
+    </h5>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_forward_ios"></mat-icon>
+    <h5>
+      <a>{{ "createCustomerPage.createCustomer" | translate }}</a>
+    </h5>
+  </div>
+  <div class="row">
+    <form [formGroup]="createCustomerForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.customerName" | translate
+              }}</mat-label>
+            <input matInput placeholder="ABC" type="text" formControlName="customerName" />
+            <!-- <mat-error *ngIf="customerListForm.hasError('required','customerId')">{{'validation.required' |
+                            translate}}</mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field class="w-100" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.preferenceReason" | translate
+              }}</mat-label>
+            <mat-select formControlName="preferenceReason">
+              <mat-option value="serviceQuality">{{
+                "createCustomerPage.serviceQuality" | translate
+                }}</mat-option>
+              <mat-option value="flavorAndTaste">{{
+                "createCustomerPage.flavorAndTaste" | translate
+                }}</mat-option>
+              <mat-option value="price">{{
+                "createCustomerPage.price" | translate
+                }}</mat-option>
+              <mat-option value="cleanBottle">{{
+                "createCustomerPage.cleanBottle" | translate
+                }}</mat-option>
+              <mat-option value="brand">{{
+                "createCustomerPage.brand" | translate
+                }}</mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="customerListForm.hasError('required','createdBy')">{{'validation.required' |
+                            translate}}</mat-error> -->
+          </mat-form-field>
+
+          <h4>{{ "createCustomerPage.paymentType" | translate }}</h4>
+          <p>
+            <mat-checkbox formControlName="cash" color="warn">{{
+              "createCustomerPage.cash" | translate
+              }}</mat-checkbox>
+          </p>
+          <p>
+            <mat-checkbox formControlName="creditCard" color="warn">{{
+              "createCustomerPage.creditCard" | translate
+              }}</mat-checkbox>
+          </p>
+          <p>
+            <mat-checkbox formControlName="otherPaymentTypes" color="warn">{{
+              "createCustomerPage.otherPaymentTypes" | translate
+              }}</mat-checkbox>
+          </p>
+
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.bottleDeposit" | translate
+              }}</mat-label>
+            <input matInput placeholder="0" type="number" formControlName="bottleDeposit" />
+            <!-- <mat-error *ngIf="customerListForm.hasError('required','address')">{{'validation.required' |
+                            translate}}</mat-error> -->
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{ "createCustomerPage.mail" | translate }}</mat-label>
+            <input matInput placeholder="abc@def.com" type="email" formControlName="mail" />
+            <!-- <mat-error *ngIf="customerListForm.hasError('required','customerName')">{{'validation.required' |
+                            translate}}</mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.customerNote" | translate
+              }}</mat-label>
+            <textarea matInput placeholder="Special Customer Note" type="text"
+              formControlName="customerNote"></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.generalOrderNote" | translate
+              }}</mat-label>
+            <textarea matInput placeholder="Note attached to each order" type="text"
+              formControlName="generalOrderNote"></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.recommendedByCustomer" | translate
+              }}</mat-label>
+            <input matInput placeholder="ABC" type="text" formControlName="recommendedByCustomer" />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+            <mat-label>{{
+              "createCustomerPage.emptyBottleQuantity" | translate
+              }}</mat-label>
+            <input matInput placeholder="0" type="number" formControlName="emptyBottleQuantity" />
+            <!-- <mat-error *ngIf="customerListForm.hasError('required','address')">{{'validation.required' |
+                            translate}}</mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row mt-3 mb-4">
+    <div class="col tabs">
+      <button [class.active]="isAddressDiv" (click)="addressDivFn()">
+        {{ "btn.address" | translate }}
+      </button>
+      <button [class.active]="isAddressDiv == false" (click)="phoneDivFn()">
+        {{ "btn.phone" | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="isAddressDiv" class="addressDiv border mb-4">
+      <form [formGroup]="addressForm">
+        <div class="row tabForm">
+          <div class="col">
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.province" | translate
+                }}</mat-label>
+              <mat-select id="province" formControlName="province" (selectionChange)="onProvinceSelected()">
+                <mat-option value="{{province.ADI}}" *ngFor="let province of provinces; let i=index">{{province.ADI}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.district" | translate
+                }}</mat-label>
+              <mat-select formControlName="district" (selectionChange)="onDistrictSelected()">
+                <mat-option value="{{district.ADI}}" *ngFor="let district of districts; let i=index">{{district.ADI}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+
+            <mat-form-field class="w-100" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.neighborhood" | translate
+                }}</mat-label>
+              <mat-select formControlName="neighborhood" (selectionChange)="onNeighborhoodSelected()">
+                <mat-option value="{{neighborhood.ADI}}" *ngFor="let neighborhood of neighborhoods; let i=index">{{neighborhood.ADI}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.street" | translate
+                }}</mat-label>
+              <input matInput placeholder="ABC" type="text" formControlName="street" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.islandName" | translate
+                }}</mat-label>
+              <input matInput placeholder="ABC" type="text" formControlName="islandName" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.siteName" | translate
+                }}</mat-label>
+              <input matInput placeholder="ABC" type="text" formControlName="siteName" />
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.blockName" | translate
+                }}</mat-label>
+              <input matInput placeholder="ABC" type="text" formControlName="blockName" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.buildingBlockNumber" | translate
+                }}</mat-label>
+              <input matInput placeholder="00" type="number" formControlName="blockNumber" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.floorNumber" | translate
+                }}</mat-label>
+              <input matInput placeholder="32" type="number" formControlName="floorNumber" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.flatNumber" | translate
+                }}</mat-label>
+              <input matInput placeholder="32" type="number" formControlName="flatNumber" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100 mb-1" color="warn" appearance="outline">
+              <mat-label>{{
+                "createCustomerPage.additionalAddressInformation" | translate
+                }}</mat-label>
+              <textarea matInput placeholder="ABC" type="text" formControlName="additionalAddressInformation"
+                cdkTextareaAutosize cdkAutosizeMinRows="4"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="notFound mt-3">
+            <label class="label mt-2">{{
+              "createCustomerPage.addressNotFound" | translate
+              }}</label>
+            <mat-checkbox color="warn" matInput formControlName="addressNotFound">{{ "createCustomerPage.300" | translate }}
+            </mat-checkbox>
+
+            <button mat-raised-button color="warn" style="margin-left: auto" (click)="addAddressFn()">
+              <mat-icon>add</mat-icon>{{ "btn.addAddress" | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div *ngIf="addressArray.length > 0" class="mat-elevation-z8 mb-5 mt-5 table-responsive">
+        <table mat-table [dataSource]="dataSource2">
+          <ng-container matColumnDef="province">
+            <th mat-header-cell *matHeaderCellDef>Province</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.province }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef>District</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.district }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="neighborhood">
+            <th mat-header-cell *matHeaderCellDef>Neighborhood</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.neighborhood }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="street">
+            <th mat-header-cell *matHeaderCellDef>Street</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.street }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="islandName">
+            <th mat-header-cell *matHeaderCellDef>Island Name</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.islandName }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="siteName">
+            <th mat-header-cell *matHeaderCellDef>Site Name</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.siteName }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="blockName">
+            <th mat-header-cell *matHeaderCellDef>Block Name</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.blockName }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="blockNumber">
+            <th mat-header-cell *matHeaderCellDef>Block Number</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.blockNumber }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="floorNumber">
+            <th mat-header-cell *matHeaderCellDef>Floor Number</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.floorNumber }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="flatNumber">
+            <th mat-header-cell *matHeaderCellDef>Flat Number</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.flatNumber }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="additionalAddressInformation">
+            <th mat-header-cell *matHeaderCellDef>
+              Additional Address Information
+            </th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.additionalAddressInformation }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="addressNotFound">
+            <th mat-header-cell *matHeaderCellDef>Address Not Found</th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.addressNotFound }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td  mat-cell *matCellDef="let row; let i= index">
+              <div class="d-flex">
+                <button  (click)="editAddress(row,i)" mat-icon-button color="warn">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="clearAddress(i)" mat-icon-button color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="addressdisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: addressdisplayedColumns"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>
+
+    <div *ngIf="isPhoneDiv" class="phoneDiv border">
+      <form [formGroup]="phoneForm">
+        <div class="row tabForm">
+          <div class="col">
+            <div style="display: flex">
+              <mat-form-field class="w-100" color="warn" appearance="outline">
+                <mat-label>{{
+                  "createCustomerPage.phoneNumber" | translate
+                  }}</mat-label>
+                <input matInput placeholder="32234234" type="text" formControlName="phoneNumber" />
+                <!-- <mat-error *ngIf="customerListForm.hasError('required','createdBy')">{{'validation.required' |
+                                        translate}}</mat-error> -->
+              </mat-form-field>
+              <button (click)="addPhoneNumber()" class="AddPhoneBtn" mat-raised-button color="warn">
+                {{ "btn.add" | translate }}
+              </button>
+            </div>
+          </div>
+          <div class="col">
+            <h4>
+              {{ "customerDetailPage.communicationPermissions" | translate }}
+            </h4>
+            <p>
+              <mat-checkbox formControlName="personalDataProtectionLaw" color="warn">{{
+                "customerDetailPage.personalDataProtectionLaw" | translate
+                }}</mat-checkbox>
+            </p>
+            <p>
+              <mat-checkbox formControlName="phone" color="warn">{{
+                "customerDetailPage.phone" | translate
+                }}</mat-checkbox>
+            </p>
+            <p>
+              <mat-checkbox formControlName="sms" color="warn">{{
+                "customerDetailPage.sms" | translate
+                }}</mat-checkbox>
+            </p>
+            <p>
+              <mat-checkbox formControlName="email" color="warn">{{
+                "customerDetailPage.email" | translate
+                }}</mat-checkbox>
+            </p>
+          </div>
+          <div class="row tabForm">
+            <div class="col">
+              <table *ngIf="phoneNumberArray.length > 0" mat-table [dataSource]="dataSource1"
+                class="mat-elevation-z8 mt-3 mb-3">
+                <ng-container matColumnDef="phoneNumber">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "createCustomerPage.phoneNumber" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row">{{ row.phoneNumber }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="personalDataProtectionLaw">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "customerDetailPage.pdpl" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row; let i=index;">
+                    <p>
+                      <mat-checkbox (change)="pdplCheckFn(i)" color="warn" [checked]="row.personalDataProtectionLaw" ></mat-checkbox>
+                    </p>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "customerDetailPage.phone" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row; let i=index;">
+                    <p>
+                      <mat-checkbox (change)="phoneCheckFn(i)" color="warn" [checked]="row.phone" ></mat-checkbox>
+                    </p>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="sms">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "customerDetailPage.sms" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row; let i=index;">
+                    <p>
+                      <mat-checkbox (change)="smsCheckFn(i)" color="warn" [checked]="row.sms" ></mat-checkbox>
+                    </p>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "customerDetailPage.email" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row; let i=index;">
+                    <p>
+                      <mat-checkbox (change)="emailCheckFn(i)" color="warn" [checked]="row.email" ></mat-checkbox>
+                    </p>
+                  </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef>
+                    {{ "createCustomerPage.actions" | translate }}
+                  </th>
+                  <td mat-cell *matCellDef="let row; let i=index">
+                    <button (click)="clearPhoneNumber(i)" mat-raised-button color="warn">
+                      <mat-icon>remove</mat-icon>{{ "btn.remove" | translate }}
+                    </button>
+                  </td>
+                </ng-container>
+  
+                <tr mat-header-row *matHeaderRowDef="phoneNumberdisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: phoneNumberdisplayedColumns"></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="searchBtn">
+      <button style="margin-right: 1.5em" mat-raised-button color="warn">
+        <mat-icon>reply</mat-icon>{{ "btn.back" | translate }}
+      </button>
+      <button (click)="createCustomerSubmitFn()" style="margin-right: 1.5em" mat-raised-button color="warn">
+        <mat-icon>save</mat-icon>{{ "btn.save" | translate }}
+      </button>
+      <button mat-raised-button color="warn">
+        <mat-icon>collections_bookmark</mat-icon>{{ "btn.saveAndCreateOrder" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.active {
+    background-color: #CE122D !important;
+    color: white;
+  }
+  .tabs button {
+    border: none;
+    background-color: #EEEEEE;
+    padding: 0.7em;
+    width: 15em;
+  }
+  .tabs button:hover {
+    background-color: #CE122D;
+    color: white;
+    transition: all 0.9s ease;
+  }
+  .secondaryForm {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .orderAmount {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+  }
